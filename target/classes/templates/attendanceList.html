@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+
+
+    <span layout:fragment="pageTitle"> - Szkoły </span>
+
+    <div layout:fragment="content">
+    	<div th:include="menuFragment" ></div>
+		<br/><Br/>
+		<table border="1" cellpadding="5">
+			<tr><th>Id</th><th>Id studenta</th><th>Data</th><th>Uczestnictwo</th><th>Id Kursu</th></tr>
+			<tr th:each="at: ${attendances}">
+				<td><span th:text="${at.id}" /></td>
+				<td><span th:text="${at.studentId}" /></td>
+				<td><span th:text="${at.classDate}" /></td>
+				<td><span th:text="${at.attendance}" /></td>
+				<td><span th:text="${at.courseId}" /></td>
+		        <td>
+		            <form action="DeleteAttendance" method="POST">
+		            	<input type="hidden" name="id" th:value="${at.id}" />
+		                <button type="submit">X</button>
+		            </form>
+				</td>
+				<td>
+		            <form action="ModifyAttendance" method="POST">
+		            	<input type="hidden" name="id" th:value="${at.id}" />
+		                <button type="submit">Modyfikuj</button>
+		            </form>
+		        </td>
+			</tr>
+		
+		
+		</table><br/><a href='AddAttendance'>dodaj formularz</a><br/><br/>
+		
+    </div>
+
+</body>
+</html>

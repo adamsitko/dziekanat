@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+    <div layout:fragment="content">
+    <div th:include="menuFragment" ></div>
+    	<br/><br/>
+	   			<form action="SaveAttendance" method="POST">
+					<table>
+						<!-- <tr><td></td><td><input type="text" name="studentId" th:value="${studentId}" /></td></tr> -->
+						<tr><td>Id studenta:</td><td><input type="text" name="studentId" /></td></tr>
+						<tr><td>Data:</td><td><input type="text" name="classDate" /></td></tr>
+						<tr><td>Uczestnictwo:</td><td><input type="text" name="attendance" /></td></tr>
+						<tr><td>Id kursu:</td><td><input type="text" name="courseId" /></td></tr>
+					</table><br/><BR/>
+					<!-- <input type="submit" value="Zapisz zmiany"/> -->
+					
+					    <!-- <form action="DeleteStudent" method="POST"> -->
+		            	<input type="hidden" name="id" th:value="${id}" />
+		                <button type="submit">Zapisz zmiany</button>
+		            <!--  </form>-->
+				</form>
+    </div>
+
+</body>
+</html>
